@@ -12,6 +12,8 @@
 #
 # This adaptation keeps only single ASCII control words missing from the
 # default latex2text context, drops their leading backslash, and sorts by name.
+# The downstream corrections use the long double arrow for iff, equals-colon
+# for eqcolon, and square brackets for lbrack and rbrack.
 
 unicodeit_symbols = (
     ('AC', '\u223f'),
@@ -593,7 +595,7 @@ unicodeit_symbols = (
     ('enleadertwodots', '\u2025'),
     ('eparsl', '\u29e3'),
     ('epsilonup', '\u03f5'),
-    ('eqcolon', '\u2239'),
+    ('eqcolon', '\u2255'),
     ('eqdef', '\u225d'),
     ('eqdot', '\u2a66'),
     ('eqeq', '\u2a75'),
@@ -697,7 +699,7 @@ unicodeit_symbols = (
     ('hybull', '\u2043'),
     ('hyphenbullet', '\u2043'),
     ('hzigzag', '\u3030'),
-    ('iff', '\u21d4'),
+    ('iff', '\u27fa'),
     ('ii', '\u2148'),
     ('iiiint', '\u2a0c'),
     ('iinfin', '\u29dc'),
@@ -757,7 +759,7 @@ unicodeit_symbols = (
     ('lbracelend', '\u23a9'),
     ('lbracemid', '\u23a8'),
     ('lbraceuend', '\u23a7'),
-    ('lbrack', '('),
+    ('lbrack', '['),
     ('lbrackextender', '\u23a2'),
     ('lbracklend', '\u23a3'),
     ('lbracklltick', '\u298f'),
@@ -2049,7 +2051,7 @@ unicodeit_symbols = (
     ('rbracelend', '\u23ad'),
     ('rbracemid', '\u23ac'),
     ('rbraceuend', '\u23ab'),
-    ('rbrack', ')'),
+    ('rbrack', ']'),
     ('rbrackextender', '\u23a5'),
     ('rbracklend', '\u23a6'),
     ('rbracklrtick', '\u298e'),

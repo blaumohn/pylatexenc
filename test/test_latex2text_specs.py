@@ -1415,6 +1415,11 @@ class TestUnicodeItSymbols(unittest.TestCase):
     def test_additional_symbol_alias(self):
         self.assertEqual(convert(r'\leftrightarrowtriangle'), '⇿')
 
+    def test_corrected_symbol_aliases(self):
+        self.assertEqual(convert(r'$A \iff B$', math_fontstyle=None), 'A ⟺ B')
+        self.assertEqual(convert(r'\eqcolon'), '≕')
+        self.assertEqual(convert(r'\lbrack x\rbrack'), '[x]')
+
 
 class TestAdvancedSymbolMacros(unittest.TestCase):
     r"""
