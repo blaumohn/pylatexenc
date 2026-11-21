@@ -1407,6 +1407,15 @@ class TestEthuebungMacros(unittest.TestCase):
                          '\nDo it\n[extra]\n')
 
 
+class TestUnicodeItSymbols(unittest.TestCase):
+    def test_implication_aliases(self):
+        self.assertEqual(convert(r'$A \implies B$', math_fontstyle=None), 'A ⟹ B')
+        self.assertEqual(convert(r'$A \impliedby B$', math_fontstyle=None), 'A ⟸ B')
+
+    def test_additional_symbol_alias(self):
+        self.assertEqual(convert(r'\leftrightarrowtriangle'), '⇿')
+
+
 class TestAdvancedSymbolMacros(unittest.TestCase):
     r"""
     A sample of the 'advanced-symbols' category, the definitions that mirror

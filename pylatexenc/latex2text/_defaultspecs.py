@@ -54,6 +54,7 @@ from ..latex2text import (
     fmt_math_expression_in_delimiters,
     _split_chars
 )
+from ._unicodeit_symbols import unicodeit_symbols
 
 
 def _format_uebung(n, l2tobj):
@@ -2083,6 +2084,12 @@ for u in unicode_accents_list:
     _latex_specs_base['macros'].append(
         MacroTextSpec(mname, _accent_formatter(mcombining))
     )
+
+specs.append(('unicodeit-symbols', {
+    'macros': [MacroTextSpec(name, symbol) for name, symbol in unicodeit_symbols],
+    'environments': [],
+    'specials': [],
+}))
 
 # specs structure now complete
 

@@ -71,6 +71,9 @@ def get_default_latex_context_db():
         built-in rules of :py:mod:`pylatexenc.latexencode`, i.e., the reverse
         direction of the unicode-to-LaTeX conversion.
 
+      - ``'unicodeit-symbols'`` — additional single-command symbol mappings
+        adapted from UnicodeIt, with lower priority than the other categories.
+
     If you want to add your own definitions, you should use the
     :py:meth:`pylatexenc.macrospec.LatexContextDb.add_context_category()`
     method.  If you would like to override some definitions, use that method

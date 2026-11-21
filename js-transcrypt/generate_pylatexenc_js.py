@@ -87,8 +87,14 @@ def run_main():
         package_name='pylatexenc-js',
         package_version='0.0.1',
         package_description=\
-            'Automatically transliterated Javascript version of the pylatexenc sources'
+            'Automatically transliterated Javascript version of the pylatexenc sources',
+        package_info_dict={'license': 'MIT AND LPPL-1.3c'},
     )
+    for license_file in ('LICENSE.txt', 'LICENSE.unicodeit', 'LICENSE.unicodeit.LPPL'):
+        shutil.copy(
+            os.path.join(pylatexenc_src_dir, license_file),
+            args.pylatexenc_js_output_dir,
+        )
 
 
     if args.compile_tests:
