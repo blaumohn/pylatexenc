@@ -150,6 +150,12 @@ class TestMathFontStyleMacros(unittest.TestCase):
         self.assertEqual(convert(r'$ab$'), u'\U0001D44E\U0001D44F') # '𝑎𝑏'
         self.assertEqual(convert(r'$\mathrm{ab}$'), 'ab')
 
+    def test_legacy_roman_font_declaration_is_scoped(self):
+        self.assertEqual(convert(r'$P_{\rm phys}+x$'),
+                         u'\U0001D443_phys + \U0001D465')
+        self.assertEqual(convert(r'\textbf{a{\rm b}c}'),
+                         u'\U0001D41Ab\U0001D41C')
+
     def test_mathbf(self):
         self.assertEqual(convert(r'$\mathbf{ab}$'), u'\U0001D41A\U0001D41B') # '𝐚𝐛'
 

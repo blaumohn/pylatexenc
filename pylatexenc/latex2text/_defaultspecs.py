@@ -148,6 +148,17 @@ def _is_fancy_math(l2tobj):
     return (l2tobj.math_mode == 'fancy')
 
 
+def _rm_formatter(node, l2tobj):
+    # The legacy declaration sets the font for the rest of the current group.
+    state = l2tobj.state
+    if state.in_math_mode:
+        if state.math_fontstyle is not False:
+            l2tobj.state = state.sub_state(math_fontstyle=None)
+    elif state.text_fontstyle is not False:
+        l2tobj.state = state.sub_state(text_fontstyle=None)
+    return ''
+
+
 def _mathxx_formatter(style):
     # '\mathbf{}' and friends.  The font style is pushed onto the conversion
     # state *before* the argument is rendered, because the style is applied
@@ -721,6 +732,7 @@ _latex_specs_base = {
         # formatter is still needed so that the fancy engine stops italicizing
         # for the duration of the argument
         MacroTextSpec('mathrm', simplify_repl=_mathxx_formatter(None)),
+        MacroTextSpec('rm', simplify_repl=_rm_formatter),
         MacroTextSpec('mathbf', simplify_repl=_mathxx_formatter('bold')),
         MacroTextSpec('mathit', simplify_repl=_mathxx_formatter('italic')),
         MacroTextSpec('mathsf', simplify_repl=_mathxx_formatter('sans')),

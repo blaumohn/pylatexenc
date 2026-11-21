@@ -2967,6 +2967,10 @@ class LatexNodes2Text(object):
         if nodelist is None:
             return ''
 
+        # A declaration can replace the current state for the remaining nodes.
+        # Restore the enclosing state on exit, even when none was passed in.
+        if state is None:
+            state = self.state
         with _util.PushPropOverride(self, 'state', state):
 
             # In math mode the 'fancy' math mode assembles the rendered
@@ -3033,7 +3037,7 @@ class LatexNodes2Text(object):
                 # variables are being italicized; see _segment_plain_str()
                 result = _join_math_pieces(
                     parts,
-                    upright_letters_are_op=bool(self.state.math_fontstyle),
+                    upright_letters_are_op=bool(state.math_fontstyle),
                 )
             else:
                 result = s

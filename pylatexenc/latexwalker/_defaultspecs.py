@@ -296,6 +296,7 @@ specs = [
             MacroSpec('texttt', arguments_spec_list=[ _arg_textmode('{') ]),
             MacroSpec('textup', arguments_spec_list=[ _arg_textmode('{') ]),
             MacroSpec('text',   arguments_spec_list=[ _arg_textmode('{') ]),
+            MacroSpec('rm'),
             std_macro('mathrm', False, 1), # only allowed in math mode anyway
             std_macro('mathbb', False, 1), # only allowed in math mode anyway
             std_macro('mathbf', False, 1),
